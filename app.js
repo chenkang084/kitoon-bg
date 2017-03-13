@@ -10,8 +10,10 @@ var settings = require('./settings');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 let routers = require('./routes/modules.js');
-
+let corsConfig = require('./routes/cors.config');
 var app = express();
+
+corsConfig(app);
 routers(app);
 
 // view engine setup
