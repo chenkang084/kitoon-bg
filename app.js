@@ -11,10 +11,12 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 let routers = require('./routes/modules.js');
 let corsConfig = require('./routes/cors.config');
+let cephRouters = require('./routes/ceph.route');
 var app = express();
 
 corsConfig(app);
 routers(app);
+cephRouters(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
